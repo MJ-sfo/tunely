@@ -12,7 +12,11 @@ This lab is all about practicing the skills you've been developing over the past
 - create a JSON CRUD API on `/api` routes in an Express server
 - serve static content on non-`/api` routes in an Express server
 - make AJAX requests with jQuery
+<<<<<<< HEAD
 - render JSON data with template strings
+=======
+- template JSON data with template strings
+>>>>>>> 815a50a3d62755239755ff0eac0fbe5932140a33
 - create the client/server/database connections required for a full stack application
 
 

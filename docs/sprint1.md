@@ -22,14 +22,64 @@ Check your work from sprint 0 by referencing the solutions on GitHub. In particu
 
 Let's start on the outside and work our way in.  
 
+<<<<<<< HEAD
 1. Open `index.html` in your text editor and find the HTML for an **album**.  This is a hard-coded sample set up for you to show the desired HTML structure.  Convert this into a template string using the data structure shown in the array of albums from `app.js`. Leave the `div` with class `albums` in place.
 
     <details><summary>hint</summary>You'll need to replace the hardcoded sample data with appropriate attribute placeholders.  (You can find the correct attributes in the array of objects provided in `app.js`.) Remember the template string syntax for a variable whose value will be inserted later: <code>`${variableName}`</code>. </details>
 
 1. Open `app.js` and edit the function `renderAlbum` to display one album on the page.  Use your HTML template string and jQuery.
+=======
+1. Open `index.html` in your text editor and find the HTML for a single **album**.  This is a hard-coded sample set up for you to show the desired HTML structure.  Convert this into an html template named `albumHtml` inside the `renderAlbum` function in `app.js`. Leave the`div` with class `albums` in place.
 
-1. Run the `renderAlbum` function when the DOM is ready, and pass in `sampleAlbums[0]` (just one album) to test.  Verify that the page still looks like it did initially.
+Your element with template strings should look like this:
+  
+  
+```javascript  
+var albumHtml = (`
+            <!-- one album -->
+            <div class='row album' data-album-id='${album.id}'>
+              <div class='col-md-10 col-md-offset-1'>
+                <div class='panel panel-default'>
+                  <div class='panel-body'>
+                  <!-- begin album internal row -->
+                    <div class='row'>
+                      <div class='col-md-3 col-xs-12 thumbnail album-art'>
+                         <img src='${album.image}' alt='album image'>
+                      </div>
+                      <div class='col-md-9 col-xs-12'>
+                        <ul class='list-group'>
+                          <li class='list-group-item'>
+                            <h4 class='inline-header'>Album Name:</h4>
+                            <span class='album-name'>${album.name}</span>
+                        </li>
+                          <li class='list-group-item'>
+                            <h4 class='inline-header'>Artist Name:</h4>
+                            <span class='artist-name'>${album.artistName}</span>
+                          </li>
+                       <li class='list-group-item'>
+                            <h4 class='inline-header'>Released date:</h4>
+                            <span class='album-name'>${album.releaseDate}</span>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                    <!-- end of album internal row -->
+                  </div>
+                  <div class='panel-footer'>
+                  </div>
+                </div>
+              </div>
+              <!-- end one album -->
+    `)
 
+```
+Inside the `renderAlbum` function, append this `albumHtml` string with the template strings populated  into your `#album` div tag with jQuery.
+
+>>>>>>> 815a50a3d62755239755ff0eac0fbe5932140a33
+
+To render the **first** element of the array, try this out:
+
+<<<<<<< HEAD
     <details><summary>hint: calling `renderAlbum`</summary>
 
     ```js
@@ -40,16 +90,27 @@ Let's start on the outside and work our way in.
     ```
 
     </details>
+=======
+
+  ```js
+  $(document).ready(function() {
+    console.log('app.js loaded!');
+    renderAlbum(sampleAlbums[0]);
+  });
+  ```
+>>>>>>> 815a50a3d62755239755ff0eac0fbe5932140a33
 
 
-## Step 1.5: Rendering all the albums.
 
-1. Update your code to use **all** the sample albums in the `sampleAlbums` array by rendering each one individually and adding it to the page.  Try to use `sampleAlbums.forEach` to call `renderAlbum` on each album.
 
+<<<<<<< HEAD
     At this point you should see all the hard-coded albums from `app.js`'s `sampleAlbums` rendered on page.
+=======
+>>>>>>> 815a50a3d62755239755ff0eac0fbe5932140a33
 
 1. Now, we're going to break this piece of code again, with the intention of fixing it by improving our server side routes. **Add an AJAX call** that will GET all of the albums from the path `/api/albums`. Upon a successful response from the server, this AJAX call should render the data to the page.
 
+<<<<<<< HEAD
   <details><summary>Click to see how to request and render all of the albums with a template string</summary>
 
   ```js
@@ -109,6 +170,16 @@ Let's start on the outside and work our way in.
     $('#albums').prepend(htmlToAppend);
   };
   ```
+=======
+
+
+## Step 1.5: Rendering all the albums.
+
+1. Update your code to use **all** the sample albums in the `sampleAlbums` array by rendering each one individually and adding it to the page.  Try to use `sampleAlbums.forEach` to call `renderAlbum` on each album. 
+
+
+At this point you should see all the hard-coded albums from `app.js`'s `sampleAlbums` rendered on page, and the original hard-coded album should be gone.  
+>>>>>>> 815a50a3d62755239755ff0eac0fbe5932140a33
 
   </details>
 
